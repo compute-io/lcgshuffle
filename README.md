@@ -41,7 +41,7 @@ $ node ./examples/index.js
 
 ## Notes
 
-This module performs a Bays-Durham shuffle on the output from compute-lcg, a linear congruential generator.  The reason for doing so is that this additional step considerably strengthens the "randomness quality" of lcg's output.
+This module performs a Bays-Durham shuffle on the output from compute-lcg, a linear congruential generator.  This additional step considerably strengthens the "randomness quality" of lcg's output.
 
 ### Bays-Durham Shuffle Description 
 
