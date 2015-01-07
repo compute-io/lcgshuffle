@@ -46,24 +46,45 @@ This module performs a Bays-Durham shuffle on the output from compute-lcg, a lin
 
 ### Bays-Durham Shuffle Description 
 
-Suppose, for example, you have a (in this contrived example, terrible) random number generator example_rand() that outputs 5, 10, 15, ..., and you want to shuffle its output in accord with the Bays-Durham algorithm.
+Suppose, for example, you have a (in this contrived example, terrible) random number generator exampleRand() that outputs 5, 10, 15, ..., and you want to shuffle its output in accord with the Bays-Durham algorithm.
 
-1. Make a table T of size K, let us say, for example, 6.
+1. Make a table T of size K, let us say, for example, 6.  (The table will change, so we will number the successive versions of the table as T0, T1, ... ).
 
-2. Initialize T with K successive calls to example_rand() => T1 = (5 10 15 20 25 30).
+2. Initialize T with K successive calls to exampleRand() => 
 
-3. Get the next random number R from another call to example_rand() => R1 = 35.
+	T0 = [5,10,15,20,25,30]
 
-4. Generate an index j into T from R by: (R + 1) mod K. => j1 = (35 + 1) mod 6 = 0.
+3. Call exampleRand() to obtain the next random number R0 => 
 
-5. Get the next shuffled output from T[j] => our first shuffled output number X1 is T[j1] => T[0] => 5.
+	R0 = 35
 
-6. Now replace T[j] with R. => T[0] = 35 => T2 = (35 10 25 20 25 30).
+4. Generate an index j0 into T0 from R0 by: (R0 + 1) mod K => 
 
-7. Repeat steps 2-5 for X2, X3, etc.
+	j0 = (35 + 1) mod 6 = 0
 
-For example, to get X2:  R2 = example_rand() => 40.  j2 = (40 + 1) mod 6 => 5.  X2 = T[5] => 30.  Set T[5] to R2 => T[5] = 40 => T2 = (35 10 25 20 25 40).
+5. Get the next shuffled output from T0[j0], so our first shuffled output number X0 is: 
 
+	X0 = T0[j0] => T0[0] => 5
+
+6. Now replace T0[j] with R. => T0[0] = 35 => 
+
+	T1 = [35,10,25,20,25,30]
+
+7. Repeat steps 2-5 for X1, X2, etc.
+
+For example, to get X1:  
+
+* R1 = exampleRand() => 40  
+
+* j1 = (40 + 1) mod 6 => 5  
+
+* X1 = T1[5] => 30  
+
+* Set T1[5] to R2 => T1[5] = 40 => 
+
+	T2 = [35,10,25,20,25,40]
+
+## References
 
 1. Bays, Carter, & Durham, S.D. 1976. 
 
