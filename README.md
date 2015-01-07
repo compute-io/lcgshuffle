@@ -2,7 +2,7 @@ lcgshuffle
 ===
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Dependencies][dependencies-image]][dependencies-url]
 
-> lcg with shuffle
+> A linear congruential pseudorandom number generator whose output is shuffled per the Bays-Durham algorithm (lcgshuffle).
 
 ## *NB. NOT READY FOR USE*
 
@@ -66,7 +66,7 @@ Suppose, for example, you have a (in this contrived example, terrible) random nu
 
 	X0 = T0[j0] => T0[0] => 5
 
-6. Now replace T0[j] with R. => T0[0] = 35 => 
+6. Now replace T0[j] with R0. => T0[0] = 35 => 
 
 	T1 = [35,10,25,20,25,30]
 
