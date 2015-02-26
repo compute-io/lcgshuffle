@@ -1,0 +1,141 @@
+26/II-15
+========
+
+Rewrote code as follows:
+
+<begin>
+
+#!/usr/bin/env node
+
+'use strict;'
+
+var A = 16807;
+var M = 2147483647;
+
+var NTAB = 32;
+
+var NRUNS = 8;
+
+// Init x at seed value;
+var x = 24680;
+
+var y = 0;
+
+var vTab = new Array(NTAB);
+loadvTab();
+printNRUNS();
+
+//-------------------------
+function printNRUNS() {
+  for(i = 0; i < NRUNS; i++) {
+    console.log( ran1().toFixed(8) );
+  }
+}
+
+//-------------------------
+function ran0() {
+  x = x * A % M;
+  return x;
+}
+
+//-------------------------
+function getj() {
+  return Math.floor(NTAB*y/M);
+}
+
+//-------------------------
+function ran1() {
+  var j = getj();
+  y = vTab[j];
+  vTab[j] = ran0();
+  return y/M;
+}
+
+//-------------------------
+function prtvTab() {
+  console.log("vtable is ...");
+  var i = 0; 
+  for(i = 0; i < NTAB; i++) {
+    console.log(vTab[i]);
+  }
+  console.log("End vTab");
+}
+
+//-------------------------
+function loadvTab() {
+  var j, tmpl
+  // Skip first 7
+  for(j = NTAB+7; j >= 0; j--) {
+    tmp = ran0(0);
+    if(j < NTAB) {
+      vTab[j] = tmp;
+    }
+  }
+  y = vTab[0];
+}
+<end>
+
+
+Quoting from the Bays-Durham paper
+==================================
+
+THE TECHNIQUE
+-------------
+
+Let T be a table of n elements, tl, ..., tn.  Let r1, r2,
+..., rp represent a pseudo-random sequence of period p, with
+the ri distributed uniformly on (0, 1).  Each time the
+built-in generator is called, the next number, ri, of the
+sequence will be generated; after p calls, the sequence
+repeats.  In the algorithm, which is given below, Z will be
+the output random number.
+
+ALGORITHM A
+-----------
+
+(1) [Initialize] Set tl, t2, ..., tn = rl, r2, ..., rn and
+set Z = rn÷1 then, for each new random number, Z:
+
+(2) Set j = [Z (dot) n]  
+
+// RCG: not sure what this means. 
+// I think it is the ceiling(Z * n).
+
+(3) Set Z = tj
+
+(4) Set tj = next ri
+
+EXAMPLE TO WALK THROUGH ALGORITHM
+---------------------------------
+
+Let n = 5
+
+Let R denote the sequence of ri's, which we assume 
+begins as follows:
+
+[.366, .829, .126, .603, .514, 
+ .450, .312, .982, .169, .382, 
+ .525, .029, .585, .783, .927]
+
+Initialize T:
+T = [.366, .829, .126, .603, .514]
+
+Z = r6 = .450
+
+j = ceil(Z * n) = ceil(.450 * 5) = 3
+
+Z = t3 = .126
+
+t3 = next ri = .312
+
+=> T = [.366, .829, .312, .603, .514].
+
+-----
+
+// I assume what happens next is this:
+
+next_r = .982
+
+#---eof---
+
+
