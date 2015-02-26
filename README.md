@@ -86,9 +86,11 @@ For example, to get X1:
 
 ## References
 
-1. Bays, Carter, & Durham, S.D. 1976. 
+1. Bays, Carter, & Durham, S.D., "Improving a Poor Random Number Generator", 2 *ACM Transactions on Mathematical Software* pp 59-64 (1976) (hereinafter Bays & Durham). 
 
-2. ACM Transactions on Mathematical Software, Vol. 2, p. 59; Thomas N. Herzog and Graham Lord, *Applications of Monte Carlo Methods to Finance and Insurance* p. 19 (2002) (portions available online at http://books.google.com/books?id=ibpfxsxuCUAC&pg=PA19&lpg=PA19&dq=bays+durham+shuffle&source=bl&ots=r6LmFaOgIA&sig=i3o41mPpHejHNgkSPd7QDx0NIOg&hl=en&sa=X&ei=GJ92VMWDBc3fsASb1oKYDg&ved=0CCQQ6AEwATgU#v=onepage&q=bays%20durham%20shuffle&f=false.  See also Numerical Recipes, p. 280-81.
+2. Bays & Durham p 59; Thomas N. Herzog and Graham Lord, *Applications of Monte Carlo Methods to Finance and Insurance* p19 (2002) (portions available [online] (http://books.google.com/books)).  
+
+3. W. Press, et al., *Numerical Recipes in C*, pp 280-81 (2d ed. 1992).
 
 
 
